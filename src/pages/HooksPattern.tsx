@@ -4,6 +4,8 @@ import LiveExample from '../components/LiveExample'
 import ProsCons from '../components/ProsCons'
 import { useState } from 'react'
 import { useLocalStorage, useDebounce } from '../patterns/hooks/customHooks'
+import Visualization from '../components/Visualization'
+import HooksViz from '../components/visualizations/HooksViz'
 
 const customHookCode = `// useLocalStorage — mirrors state to localStorage
 export function useLocalStorage<T>(key: string, initial: T) {
@@ -246,6 +248,21 @@ export default function HooksPattern() {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-white mb-4">Visualization</h2>
+        <p className="text-surface-400 mb-4">
+          Three unrelated components all call the same{' '}
+          <code className="text-accent-400">useToggle()</code> hook. They share the <em>logic</em>, but
+          each call keeps its own independent state — and the hook adds no extra nodes to the tree.
+        </p>
+        <Visualization
+          title="Reusing one hook"
+          caption="Shared logic, independent state, zero wrapper nodes."
+        >
+          <HooksViz />
+        </Visualization>
       </section>
     </motion.div>
   )

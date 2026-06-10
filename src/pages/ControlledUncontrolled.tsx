@@ -5,6 +5,8 @@ import BeforeAfter from '../components/BeforeAfter'
 import ProsCons from '../components/ProsCons'
 import { ControlledForm, UncontrolledForm } from '../patterns/controlled/Forms'
 import { useState } from 'react'
+import Visualization from '../components/Visualization'
+import ControlledViz from '../components/visualizations/ControlledViz'
 
 const controlledCode = `// Controlled: the parent owns every value
 function ControlledForm() {
@@ -295,6 +297,21 @@ export default function ControlledUncontrolled() {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-white mb-4">Visualization</h2>
+        <p className="text-surface-400 mb-4">
+          On the left, every keystroke pushes through <code className="text-accent-400">useState</code>{' '}
+          and triggers a re-render (watch the counter climb). On the right, the DOM keeps the value and
+          React only reads it via a ref when you submit.
+        </p>
+        <Visualization
+          title="Who owns the value?"
+          caption="Controlled re-renders per keystroke; uncontrolled reads on submit."
+        >
+          <ControlledViz />
+        </Visualization>
       </section>
     </motion.div>
   )

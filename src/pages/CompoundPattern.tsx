@@ -4,6 +4,8 @@ import LiveExample from '../components/LiveExample'
 import BeforeAfter from '../components/BeforeAfter'
 import ProsCons from '../components/ProsCons'
 import { Tabs } from '../patterns/compound/Tabs'
+import Visualization from '../components/Visualization'
+import CompoundViz from '../components/visualizations/CompoundViz'
 
 const tabsCode = `const TabsContext = createContext<{
   activeTab: string
@@ -250,6 +252,22 @@ export default function CompoundPattern() {
           <strong className="text-white">Headless UI</strong> which use this pattern internally.
           To optimize re-renders, split context into separate providers for state and dispatch.
         </p>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-white mb-4">Visualization</h2>
+        <p className="text-surface-400 mb-4">
+          Watch the shared <code className="text-accent-400">active tab</code> state live in the{' '}
+          <code className="text-accent-400">&lt;Tabs&gt;</code> parent and flow through Context to every
+          sub-component — the matching <code className="text-accent-400">&lt;TabPanel&gt;</code> lights up,
+          with no props passed between them.
+        </p>
+        <Visualization
+          title="Compound state flow"
+          caption="The parent owns the state; children read it from Context."
+        >
+          <CompoundViz />
+        </Visualization>
       </section>
     </motion.div>
   )

@@ -4,6 +4,8 @@ import LiveExample from '../components/LiveExample'
 import ProsCons from '../components/ProsCons'
 import { useState } from 'react'
 import { FormValidator } from '../patterns/render-props/FormValidator'
+import Visualization from '../components/Visualization'
+import RenderPropsViz from '../components/visualizations/RenderPropsViz'
 
 const renderPropsCode = `// The component encapsulates logic but delegates rendering
 type RenderProp<T> = (value: T) => React.ReactNode
@@ -297,6 +299,21 @@ export default function RenderPropsPattern() {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-white mb-4">Visualization</h2>
+        <p className="text-surface-400 mb-4">
+          A single <code className="text-accent-400">DataProvider</code> owns the logic and passes its
+          data through <code className="text-accent-400">children(data)</code>. The consumer is free to
+          render it any way — a list, a card, or a chart — while the logic stays identical.
+        </p>
+        <Visualization
+          title="Logic in, any UI out"
+          caption="One render prop feeds many different renderings."
+        >
+          <RenderPropsViz />
+        </Visualization>
       </section>
     </motion.div>
   )

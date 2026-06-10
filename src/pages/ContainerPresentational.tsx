@@ -4,6 +4,8 @@ import LiveExample from '../components/LiveExample'
 import BeforeAfter from '../components/BeforeAfter'
 import ProsCons from '../components/ProsCons'
 import { DogImages, useDogImages } from '../patterns/container-presentational/DogImages'
+import Visualization from '../components/Visualization'
+import ContainerPresentationalViz from '../components/visualizations/ContainerPresentationalViz'
 
 const containerCode = `// Container Component: handles data fetching
 export default class DogImagesContainer extends React.Component {
@@ -234,6 +236,21 @@ export default function ContainerPresentational() {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-white mb-4">Visualization</h2>
+        <p className="text-surface-400 mb-4">
+          The <code className="text-accent-400">Container</code> fetches the data, then hands it to the{' '}
+          <code className="text-accent-400">Presentational</code> component through props. One worries
+          about <em>how things work</em>, the other about <em>how things look</em>.
+        </p>
+        <Visualization
+          title="Data in, view out"
+          caption="Fetching is separated from rendering."
+        >
+          <ContainerPresentationalViz />
+        </Visualization>
       </section>
     </motion.div>
   )

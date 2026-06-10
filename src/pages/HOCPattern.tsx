@@ -3,6 +3,8 @@ import CodeBlock from '../components/CodeBlock'
 import LiveExample from '../components/LiveExample'
 import ProsCons from '../components/ProsCons'
 import { useState, type ReactNode } from 'react'
+import Visualization from '../components/Visualization'
+import HOCViz from '../components/visualizations/HOCViz'
 
 const hocCode = `// A Higher-Order Component is a function that takes
 // a component and returns a new component with extra behavior.
@@ -261,6 +263,21 @@ export default function HOCPattern() {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-white mb-4">Visualization</h2>
+        <p className="text-surface-400 mb-4">
+          A plain <code className="text-accent-400">Profile</code> component slides into the dashed{' '}
+          <code className="text-accent-400">withAuth()</code> wrapper, which injects an auth check and
+          returns an enhanced component — the original is never modified.
+        </p>
+        <Visualization
+          title="Wrapping a component"
+          caption="An HOC returns a new component that adds behavior around the original."
+        >
+          <HOCViz />
+        </Visualization>
       </section>
     </motion.div>
   )
