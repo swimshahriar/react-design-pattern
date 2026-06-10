@@ -4,6 +4,8 @@ import LiveExample from '../components/LiveExample'
 import ProsCons from '../components/ProsCons'
 import { useState } from 'react'
 import { ThemeProvider, useTheme } from '../patterns/provider/providers'
+import Visualization from '../components/Visualization'
+import ProviderViz from '../components/visualizations/ProviderViz'
 
 const providerCode = `import { createContext, useContext, useState } from 'react'
 
@@ -298,6 +300,21 @@ export default function ProviderPattern() {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-white mb-4">Visualization</h2>
+        <p className="text-surface-400 mb-4">
+          The <code className="text-accent-400">ThemeProvider</code> broadcasts its value straight to
+          every consumer at any depth. Watch the color update ripple to all leaves at once — the
+          intermediate layers pass nothing down.
+        </p>
+        <Visualization
+          title="Broadcasting through Context"
+          caption="Every consumer subscribes directly — no prop drilling."
+        >
+          <ProviderViz />
+        </Visualization>
       </section>
     </motion.div>
   )

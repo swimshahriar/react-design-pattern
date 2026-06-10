@@ -3,6 +3,8 @@ import CodeBlock from '../components/CodeBlock'
 import LiveExample from '../components/LiveExample'
 import ProsCons from '../components/ProsCons'
 import { EventEmitterDemo } from '../patterns/observer/EventEmitter'
+import Visualization from '../components/Visualization'
+import ObserverViz from '../components/visualizations/ObserverViz'
 
 const eventEmitterCode = `// Classic EventEmitter class
 class EventEmitter {
@@ -254,6 +256,22 @@ export default function ObserverPattern() {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-white mb-4">Visualization</h2>
+        <p className="text-surface-400 mb-4">
+          The <code className="text-accent-400">Publisher</code> emits an event into the{' '}
+          <code className="text-accent-400">EventBus</code>, which fans it out to every{' '}
+          <code className="text-accent-400">Subscriber</code> at once. Publishers and subscribers never
+          reference each other directly.
+        </p>
+        <Visualization
+          title="Publish / subscribe"
+          caption="One emit, many independent reactions — fully decoupled."
+        >
+          <ObserverViz />
+        </Visualization>
       </section>
     </motion.div>
   )
